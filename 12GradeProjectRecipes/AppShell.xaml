@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:views="clr-namespace:_12GradeProjectRecipes.Views"
+       x:Class="_12GradeProjectRecipes.AppShell"
+       FlowDirection="RightToLeft"
+       FlyoutBehavior="Disabled"
+       Shell.NavBarIsVisible="False"
+       Shell.BackgroundColor="#FBF7F0"
+       Shell.TabBarBackgroundColor="#FFFDF9"
+       Shell.TabBarForegroundColor="#B86B72"
+       Shell.TabBarTitleColor="#B86B72"
+       Shell.TabBarUnselectedColor="#9A8A7E">
+
+    <TabBar>
+
+        <ShellContent Title="פתיחה" Route="WelcomePage"
+                      ContentTemplate="{DataTemplate views:WelcomePage}">
+            <ShellContent.Icon>
+                <FontImageSource Glyph="🏠" Size="22" />
+            </ShellContent.Icon>
+        </ShellContent>
+
+        <ShellContent Title="התחברות" Route="LoginPage"
+                      ContentTemplate="{DataTemplate views:LoginPage}">
+            <ShellContent.Icon>
+                <FontImageSource Glyph="🔑" Size="22" />
+            </ShellContent.Icon>
+        </ShellContent>
+
+        <ShellContent Title="הרשמה" Route="RegisterPage"
+                      ContentTemplate="{DataTemplate views:RegisterPage}">
+            <ShellContent.Icon>
+                <FontImageSource Glyph="📝" Size="22" />
+            </ShellContent.Icon>
+        </ShellContent>
+
+        <ShellContent Title="שחזור" Route="ForgotPasswordPage"
+                      ContentTemplate="{DataTemplate views:ForgotPasswordPage}">
+            <ShellContent.Icon>
+                <FontImageSource Glyph="🔒" Size="22" />
+            </ShellContent.Icon>
+        </ShellContent>
+
+    </TabBar>
+
+</Shell>

@@ -1,0 +1,204 @@
+<ContentPage x:Class="_12GradeProjectRecipes.Views.WelcomePage"
+             Title="WelcomePage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <!-- ===== צבעים (חמים, בלי שחור ובלי כתום) ===== -->
+            <Color x:Key="OffWhite">#FBF7F0</Color>
+            <Color x:Key="Surface">#FFFDF9</Color>
+            <Color x:Key="Primary">#B86B72</Color>
+            <Color x:Key="TextDark">#5A4A42</Color>
+            <Color x:Key="TextMuted">#9A8A7E</Color>
+            <Color x:Key="Accent">#A0785A</Color>
+            <Color x:Key="Line">#EADFD0</Color>
+            <Color x:Key="ImagePlaceholder">#F0E6DA</Color>
+
+            <!-- ===== סגנונות ===== -->
+            <Style x:Key="PrimaryButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="TextColor" Value="#FFFDF9" />
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="CornerRadius" Value="16" />
+                <Setter Property="HeightRequest" Value="56" />
+            </Style>
+
+            <Style x:Key="SecondaryButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="TextColor" Value="{StaticResource TextDark}" />
+                <Setter Property="BorderColor" Value="{StaticResource Line}" />
+                <Setter Property="BorderWidth" Value="1.5" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="CornerRadius" Value="14" />
+                <Setter Property="HeightRequest" Value="48" />
+            </Style>
+
+            <Style x:Key="CardTitle" TargetType="Label">
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="{StaticResource TextDark}" />
+                <Setter Property="MaxLines" Value="2" />
+            </Style>
+
+            <Style x:Key="CardTime" TargetType="Label">
+                <Setter Property="FontSize" Value="13" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="{StaticResource Accent}" />
+            </Style>
+
+            <Style x:Key="PlusButton" TargetType="Button">
+                <Setter Property="Text" Value="+" />
+                <Setter Property="WidthRequest" Value="36" />
+                <Setter Property="HeightRequest" Value="36" />
+                <Setter Property="CornerRadius" Value="18" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="FontSize" Value="22" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="BackgroundColor" Value="{StaticResource Surface}" />
+                <Setter Property="TextColor" Value="{StaticResource Primary}" />
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="VerticalOptions" Value="Start" />
+                <Setter Property="Margin" Value="10" />
+            </Style>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid BackgroundColor="#FBF7F0">
+
+        <!-- ================= תוכן הדף ================= -->
+        <ScrollView>
+            <VerticalStackLayout Padding="24,48,24,32" Spacing="28">
+
+                <!-- לוגו -->
+                <VerticalStackLayout HorizontalOptions="Center" Spacing="10">
+                    <Border WidthRequest="96" HeightRequest="96"
+                            BackgroundColor="#FFFDF9"
+                            Stroke="{StaticResource Line}" StrokeThickness="2">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="48" />
+                        </Border.StrokeShape>
+                        <Label Text="🍲" FontSize="46"
+                               HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+                    <Label Text="המתכונים שלי" FontSize="26" FontAttributes="Bold"
+                           TextColor="{StaticResource TextDark}" HorizontalOptions="Center" />
+                    <Label Text="בישול פשוט, טעים ומסודר" FontSize="14"
+                           TextColor="{StaticResource TextMuted}" HorizontalOptions="Center" />
+                </VerticalStackLayout>
+
+                <!-- הרשמה או התחברות -->
+                <Button Text="הרשמה או התחברות" Style="{StaticResource PrimaryButton}" />
+
+                <!-- המלצות למתכונים -->
+                <VerticalStackLayout Spacing="14">
+                    <Label Text="המלצות למתכונים" FontSize="22" FontAttributes="Bold"
+                           TextColor="{StaticResource TextDark}" />
+
+                    <ScrollView Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+                        <HorizontalStackLayout Spacing="14">
+
+                            <!-- כרטיס 1 -->
+                            <Border WidthRequest="170" BackgroundColor="#FFFDF9"
+                                    Stroke="{StaticResource Line}" StrokeThickness="1.5">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="20" />
+                                </Border.StrokeShape>
+                                <Grid RowDefinitions="130,*">
+                                    <Grid BackgroundColor="#F0E6DA">
+                                        <Image Source="recipe1.png" Aspect="AspectFill" />
+                                        <Button Style="{StaticResource PlusButton}" />
+                                    </Grid>
+                                    <VerticalStackLayout Grid.Row="1" Padding="14,10" Spacing="4">
+                                        <Label Text="פסטה ברוטב עגבניות" Style="{StaticResource CardTitle}" />
+                                        <Label Text="25 דקות" Style="{StaticResource CardTime}" />
+                                    </VerticalStackLayout>
+                                </Grid>
+                            </Border>
+
+                            <!-- כרטיס 2 -->
+                            <Border WidthRequest="170" BackgroundColor="#FFFDF9"
+                                    Stroke="{StaticResource Line}" StrokeThickness="1.5">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="20" />
+                                </Border.StrokeShape>
+                                <Grid RowDefinitions="130,*">
+                                    <Grid BackgroundColor="#F0E6DA">
+                                        <Image Source="recipe2.png" Aspect="AspectFill" />
+                                        <Button Style="{StaticResource PlusButton}" />
+                                    </Grid>
+                                    <VerticalStackLayout Grid.Row="1" Padding="14,10" Spacing="4">
+                                        <Label Text="שקשוקה קלאסית" Style="{StaticResource CardTitle}" />
+                                        <Label Text="20 דקות" Style="{StaticResource CardTime}" />
+                                    </VerticalStackLayout>
+                                </Grid>
+                            </Border>
+
+                            <!-- כרטיס 3 -->
+                            <Border WidthRequest="170" BackgroundColor="#FFFDF9"
+                                    Stroke="{StaticResource Line}" StrokeThickness="1.5">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="20" />
+                                </Border.StrokeShape>
+                                <Grid RowDefinitions="130,*">
+                                    <Grid BackgroundColor="#F0E6DA">
+                                        <Image Source="recipe3.png" Aspect="AspectFill" />
+                                        <Button Style="{StaticResource PlusButton}" />
+                                    </Grid>
+                                    <VerticalStackLayout Grid.Row="1" Padding="14,10" Spacing="4">
+                                        <Label Text="עוגת שוקולד" Style="{StaticResource CardTitle}" />
+                                        <Label Text="50 דקות" Style="{StaticResource CardTime}" />
+                                    </VerticalStackLayout>
+                                </Grid>
+                            </Border>
+
+                            <!-- כרטיס 4 -->
+                            <Border WidthRequest="170" BackgroundColor="#FFFDF9"
+                                    Stroke="{StaticResource Line}" StrokeThickness="1.5">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="20" />
+                                </Border.StrokeShape>
+                                <Grid RowDefinitions="130,*">
+                                    <Grid BackgroundColor="#F0E6DA">
+                                        <Image Source="recipe4.png" Aspect="AspectFill" />
+                                        <Button Style="{StaticResource PlusButton}" />
+                                    </Grid>
+                                    <VerticalStackLayout Grid.Row="1" Padding="14,10" Spacing="4">
+                                        <Label Text="סלט יווני" Style="{StaticResource CardTitle}" />
+                                        <Label Text="10 דקות" Style="{StaticResource CardTime}" />
+                                    </VerticalStackLayout>
+                                </Grid>
+                            </Border>
+
+                        </HorizontalStackLayout>
+                    </ScrollView>
+                </VerticalStackLayout>
+
+                <!-- המשך כאורח -->
+                <Button Text="המשך כאורח" Style="{StaticResource SecondaryButton}" />
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- ================= חלון קופץ לאורח (מוסתר כברירת מחדל) ================= -->
+        <Grid x:Name="LoginPrompt" IsVisible="False" BackgroundColor="#CCEFE4D6">
+            <Border BackgroundColor="#FFFDF9"
+                    Stroke="{StaticResource Line}" StrokeThickness="1.5"
+                    Padding="24" Margin="32,0" VerticalOptions="Center">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="24" />
+                </Border.StrokeShape>
+                <VerticalStackLayout Spacing="16">
+                    <Label Text="🔒" FontSize="34" HorizontalOptions="Center" />
+                    <Label Text="התחבר כדי לראות עוד או להוסיף לרשימה"
+                           FontSize="18" FontAttributes="Bold"
+                           TextColor="{StaticResource TextDark}"
+                           HorizontalTextAlignment="Center" />
+                    <Button Text="התחברות" Style="{StaticResource PrimaryButton}" />
+                    <Button Text="ביטול" Style="{StaticResource SecondaryButton}" />
+                </VerticalStackLayout>
+            </Border>
+        </Grid>
+
+    </Grid>
+</ContentPage>

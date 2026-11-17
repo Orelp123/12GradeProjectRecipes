@@ -1,0 +1,174 @@
+<ContentPage x:Class="_12GradeProjectRecipes.Views.LoginPage"
+             Title="LoginPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <Color x:Key="Surface">#FFFDF9</Color>
+            <Color x:Key="Primary">#B86B72</Color>
+            <Color x:Key="TextDark">#5A4A42</Color>
+            <Color x:Key="TextMuted">#9A8A7E</Color>
+            <Color x:Key="Accent">#A0785A</Color>
+            <Color x:Key="Line">#EADFD0</Color>
+            <Color x:Key="ErrorColor">#A8474E</Color>
+
+            <Style x:Key="PrimaryButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="TextColor" Value="#FFFDF9" />
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="CornerRadius" Value="16" />
+                <Setter Property="HeightRequest" Value="56" />
+                <Style.Triggers>
+                    <DataTrigger TargetType="Button"
+                                 Binding="{Binding Source={RelativeSource Self}, Path=IsEnabled}"
+                                 Value="False">
+                        <Setter Property="BackgroundColor" Value="#D9C9BC" />
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style x:Key="SecondaryButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#E9D8C4" />
+                <Setter Property="TextColor" Value="#5A4A42" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="CornerRadius" Value="14" />
+                <Setter Property="HeightRequest" Value="48" />
+            </Style>
+
+            <Style x:Key="LinkButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="TextColor" Value="{StaticResource Accent}" />
+                <Setter Property="FontSize" Value="15" />
+                <Setter Property="Padding" Value="0" />
+            </Style>
+
+            <Style x:Key="BackButton" TargetType="Button">
+                <Setter Property="Text" Value="→" />
+                <Setter Property="WidthRequest" Value="44" />
+                <Setter Property="HeightRequest" Value="44" />
+                <Setter Property="CornerRadius" Value="22" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="FontSize" Value="22" />
+                <Setter Property="BackgroundColor" Value="#FFFDF9" />
+                <Setter Property="TextColor" Value="{StaticResource TextDark}" />
+                <Setter Property="BorderColor" Value="{StaticResource Line}" />
+                <Setter Property="BorderWidth" Value="1.5" />
+                <Setter Property="HorizontalOptions" Value="Start" />
+            </Style>
+
+            <Style x:Key="FieldLabel" TargetType="Label">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="{StaticResource TextDark}" />
+            </Style>
+
+            <Style x:Key="FieldBorder" TargetType="Border">
+                <Setter Property="BackgroundColor" Value="#FFFDF9" />
+                <Setter Property="Stroke" Value="{StaticResource Line}" />
+                <Setter Property="StrokeThickness" Value="1.5" />
+                <Setter Property="Padding" Value="14,0" />
+                <Setter Property="StrokeShape">
+                    <Setter.Value>
+                        <RoundRectangle CornerRadius="14" />
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="FieldEntry" TargetType="Entry">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="TextColor" Value="{StaticResource TextDark}" />
+                <Setter Property="PlaceholderColor" Value="{StaticResource TextMuted}" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="HeightRequest" Value="52" />
+            </Style>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid BackgroundColor="#FBF7F0">
+        <ScrollView>
+            <VerticalStackLayout Padding="24,40,24,32" Spacing="22">
+
+                <!-- חץ חזרה -->
+                <Button Style="{StaticResource BackButton}" />
+
+                <!-- כותרת -->
+                <VerticalStackLayout HorizontalOptions="Center" Spacing="10">
+                    <Border WidthRequest="80" HeightRequest="80"
+                            BackgroundColor="#FFFDF9"
+                            Stroke="{StaticResource Line}" StrokeThickness="2">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="40" />
+                        </Border.StrokeShape>
+                        <Label Text="🍲" FontSize="38"
+                               HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Border>
+                    <Label Text="התחברות" FontSize="28" FontAttributes="Bold"
+                           TextColor="{StaticResource TextDark}" HorizontalOptions="Center" />
+                    <Label Text="ברוכים השבים, נעים לראות אותך שוב"
+                           FontSize="14" TextColor="{StaticResource TextMuted}"
+                           HorizontalOptions="Center" />
+                </VerticalStackLayout>
+
+                <!-- שם משתמש -->
+                <VerticalStackLayout Spacing="6">
+                    <Label Text="שם משתמש" Style="{StaticResource FieldLabel}" />
+                    <Border Style="{StaticResource FieldBorder}">
+                        <Entry Placeholder="הקלד שם משתמש או אימייל"
+                               Style="{StaticResource FieldEntry}" />
+                    </Border>
+                </VerticalStackLayout>
+
+                <!-- סיסמה -->
+                <VerticalStackLayout Spacing="6">
+                    <Label Text="סיסמה" Style="{StaticResource FieldLabel}" />
+                    <Border Style="{StaticResource FieldBorder}">
+                        <Entry Placeholder="הקלד סיסמה" IsPassword="True"
+                               Style="{StaticResource FieldEntry}">
+                            <Entry.Triggers>
+                                <DataTrigger TargetType="Entry"
+                                             Binding="{Binding Source={x:Reference ShowPassword}, Path=IsChecked}"
+                                             Value="True">
+                                    <Setter Property="IsPassword" Value="False" />
+                                </DataTrigger>
+                            </Entry.Triggers>
+                        </Entry>
+                    </Border>
+
+                    <!-- הצג סיסמה (Binding) -->
+                    <HorizontalStackLayout Spacing="4">
+                        <CheckBox x:Name="ShowPassword" Color="{StaticResource Primary}" />
+                        <Label Text="הצג סיסמה" TextColor="{StaticResource TextDark}"
+                               FontSize="14" VerticalOptions="Center" />
+                    </HorizontalStackLayout>
+
+                    <!-- הודעת שגיאה (מוסתרת עד שתחבר לוגיקה) -->
+                    <Label Text="שם המשתמש או הסיסמה שגויים"
+                           TextColor="{StaticResource ErrorColor}" FontSize="13"
+                           IsVisible="False" />
+                </VerticalStackLayout>
+
+                <!-- קישור שכחת סיסמה -->
+                <Button Text="שכחת סיסמה?" Style="{StaticResource LinkButton}"
+                        HorizontalOptions="Start" />
+
+                <!-- שמור / נקה (לפי השרטוט) -->
+                <Grid ColumnDefinitions="2*,*" ColumnSpacing="12">
+                    <Button Grid.Column="0" Text="שמור" Style="{StaticResource PrimaryButton}" />
+                    <Button Grid.Column="1" Text="נקה" Style="{StaticResource SecondaryButton}"
+                            HeightRequest="56" />
+                </Grid>
+
+                <!-- אין לך משתמש -->
+                <HorizontalStackLayout HorizontalOptions="Center" Spacing="4">
+                    <Label Text="אין לך משתמש?" TextColor="{StaticResource TextMuted}"
+                           FontSize="15" VerticalOptions="Center" />
+                    <Button Text="לחץ כאן להרשמה" Style="{StaticResource LinkButton}"
+                            FontAttributes="Bold" />
+                </HorizontalStackLayout>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

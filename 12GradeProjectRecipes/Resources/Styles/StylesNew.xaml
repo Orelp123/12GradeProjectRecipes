@@ -1,0 +1,127 @@
+﻿<ResourceDictionary x:Class="_12GradeProjectRecipes.Resources.Styles.StylesNew">
+    <!-- ===== צבעים ===== -->
+    <Color x:Key="OffWhiteColor">#FBF7F0</Color>
+    <Color x:Key="CreamColor">#FFFDF9</Color>
+    <Color x:Key="RoseColor">#B86B72</Color>
+    <Color x:Key="CocoaColor">#5A4A42</Color>
+    <Color x:Key="TaupeColor">#9A8A7E</Color>
+    <Color x:Key="CaramelColor">#A0785A</Color>
+    <Color x:Key="SandColor">#E9D8C4</Color>
+    <Color x:Key="LineColor">#EADFD0</Color>
+    <Color x:Key="ImagePlaceholderColor">#F0E6DA</Color>
+
+    <!-- ===== כפתורים ===== -->
+    <Style x:Key="buttonStyle" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{StaticResource RoseColor}" />
+        <Setter Property="TextColor" Value="{StaticResource CreamColor}" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="CornerRadius" Value="16" />
+        <Setter Property="HeightRequest" Value="56" />
+        <Style.Triggers>
+            <DataTrigger TargetType="Button"
+                     Binding="{Binding Source={RelativeSource Self}, Path=IsEnabled}"
+                     Value="False">
+                <Setter Property="BackgroundColor" Value="#D9C9BC" />
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="secondaryButtonStyle" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{StaticResource SandColor}" />
+        <Setter Property="TextColor" Value="{StaticResource CocoaColor}" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="CornerRadius" Value="14" />
+        <Setter Property="HeightRequest" Value="56" />
+    </Style>
+
+    <Style x:Key="linkButtonStyle" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="TextColor" Value="{StaticResource CaramelColor}" />
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="Padding" Value="0" />
+    </Style>
+
+    <Style x:Key="backButtonStyle" TargetType="Button">
+        <Setter Property="Text" Value="→" />
+        <Setter Property="WidthRequest" Value="44" />
+        <Setter Property="HeightRequest" Value="44" />
+        <Setter Property="CornerRadius" Value="22" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="FontSize" Value="22" />
+        <Setter Property="BackgroundColor" Value="{StaticResource CreamColor}" />
+        <Setter Property="TextColor" Value="{StaticResource CocoaColor}" />
+        <Setter Property="BorderColor" Value="{StaticResource LineColor}" />
+        <Setter Property="BorderWidth" Value="1.5" />
+        <Setter Property="HorizontalOptions" Value="Start" />
+    </Style>
+
+    <Style x:Key="plusButtonStyle" TargetType="Button">
+        <Setter Property="Text" Value="+" />
+        <Setter Property="WidthRequest" Value="36" />
+        <Setter Property="HeightRequest" Value="36" />
+        <Setter Property="CornerRadius" Value="18" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="FontSize" Value="22" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="BackgroundColor" Value="{StaticResource CreamColor}" />
+        <Setter Property="TextColor" Value="{StaticResource RoseColor}" />
+        <Setter Property="HorizontalOptions" Value="Start" />
+        <Setter Property="VerticalOptions" Value="Start" />
+        <Setter Property="Margin" Value="10" />
+    </Style>
+
+    <!-- ===== טקסטים ===== -->
+    <Style x:Key="fieldLabelStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="TextColor" Value="{StaticResource CocoaColor}" />
+    </Style>
+
+    <Style x:Key="hintLabelStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="TextColor" Value="{StaticResource TaupeColor}" />
+    </Style>
+
+    <Style x:Key="stepTitleStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="TextColor" Value="{StaticResource CaramelColor}" />
+    </Style>
+
+    <Style x:Key="cardTitleStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="TextColor" Value="{StaticResource CocoaColor}" />
+        <Setter Property="MaxLines" Value="2" />
+    </Style>
+
+    <Style x:Key="cardTimeStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="TextColor" Value="{StaticResource CaramelColor}" />
+    </Style>
+
+    <!-- ===== שדות ===== -->
+    <Style x:Key="fieldBorderStyle" TargetType="Border">
+        <Setter Property="BackgroundColor" Value="{StaticResource CreamColor}" />
+        <Setter Property="Stroke" Value="{StaticResource LineColor}" />
+        <Setter Property="StrokeThickness" Value="1.5" />
+        <Setter Property="Padding" Value="14,0" />
+        <Setter Property="StrokeShape">
+            <Setter.Value>
+                <RoundRectangle CornerRadius="14" />
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="fieldEntryStyle" TargetType="Entry">
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="TextColor" Value="{StaticResource CocoaColor}" />
+        <Setter Property="PlaceholderColor" Value="{StaticResource TaupeColor}" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="HeightRequest" Value="52" />
+    </Style>
+
+</ResourceDictionary>
